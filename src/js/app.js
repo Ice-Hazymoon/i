@@ -2,7 +2,7 @@
  * @Author: Ice-Hazymoon 
  * @Date: 2018-06-04 15:41:56 
  * @Last Modified by: Ice-Hazymoon
- * @Last Modified time: 2018-06-04 16:59:35
+ * @Last Modified time: 2018-06-05 00:00:40
  */
 (function(){
     function hitoko(){
@@ -25,5 +25,28 @@
         this.addEventListener('transitionend', function(e){
             this.classList.remove('re');
         })
+    })
+
+    function toggleClass(el, classname){
+        if(el.classList.contains(classname)){
+            el.classList.remove(classname)
+            return false;
+        }else{
+            el.classList.add(classname)
+            return true;
+        }
+    }
+
+    document.getElementsByClassName('contact')[0].addEventListener('click', function(e){
+        e.preventDefault();
+        if(document.body.clientWidth < 450){
+            if(toggleClass(this, 'show-c')){
+                document.getElementsByClassName('m')[0].style.display="block"
+            }else{
+                document.getElementsByClassName('m')[0].style.display="none"
+            }
+        }else{
+            toggleClass(this, 'show-c')
+        }
     })
 }())
