@@ -1,0 +1,171 @@
+html{
+    font-size: 16px;
+    height: 100%;
+}
+
+body{
+    background-color: #f6f6f6;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    // background-image: linear-gradient(135deg, #667eea 0%, #05000a 100%);
+    transition: all .3s ease;
+    font-family: Helvetica, "Helvetica Neue", Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",  "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+}
+
+.mask{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../images/bg.png');
+    width: 100%;
+    height: 100%;
+    opacity: .4;
+}
+
+#app{
+    $height: 530px;
+    $width: 400px;
+    position: absolute;
+    width: $width;
+    height: $height;
+    margin: 0 auto;
+    top: calc((50% - #{$height / 2}));
+    left: 0;
+    right: 0;
+}
+
+.left{
+    z-index: 0;
+    position: absolute;
+    left: -20px;
+    top: 2%;
+    height: 95%;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 15px 60px 5px rgba($color: #110033, $alpha: .4);
+
+}
+.right{
+    z-index: 0;
+    position: absolute;
+    right: -20px;
+    top: 2%;
+    height: 95%;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 15px 60px 5px rgba($color: #110033, $alpha: .4);
+
+}
+
+.main{
+    z-index: 1;
+    position: relative;
+    height: 100%;
+    color: #4f5155;
+    box-shadow: 0 15px 60px 5px rgba($color: #110033, $alpha: .4);
+    border-radius: 8px;
+    background-color: #fff;
+    .avatar{
+        margin: 0 auto;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        top: -40px;
+        overflow: hidden;
+        padding: 3px;
+        box-shadow: 0px 1px 8px 0px rgba($color: #000000, $alpha: .3);
+        text-align: center;
+        box-sizing: border-box;
+        background: #fff;
+        cursor: pointer;
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+    .hitokoto{
+        text-align: center;
+        font-size: 12px;
+        color: #8a8a8a;
+        position: absolute;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        transform: scale(.9);
+    }
+    .contact-p{
+        height: 60px;
+        width: 130px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: -10px;
+        &:hover .contact{
+            bottom: 0;
+            box-shadow: none;
+            font-size: 16px;
+            width: 90px;
+        }
+        .contact{
+            position: relative;
+            bottom: -23px;
+            color: #fff;
+            border-radius: 50px;
+            width: 100px;
+            text-align: center;
+            padding: 10px 15px;
+            margin: 0 auto;
+            font-size: 18px;
+            background-image: linear-gradient(135deg, #667eea 0%, #a88fc3 100%);
+            box-shadow: 0px 15px 25px 3px rgba($color: #3D295A, $alpha: .4);
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+    }
+    .info{
+        text-align: center;
+        .name{
+            font-size: 20px;
+            font-weight: 300;
+        }
+        .address{
+            color: #8a8a8a;
+            margin-top: 5px;
+        }
+    }
+    .operat{
+        position: absolute;
+        width: 100%;
+        top: 15px;
+        svg{
+            cursor: pointer;
+            fill: #d4d4d4;
+            width: 25px;
+            height: 25px;
+            position: relative;
+            transition: all .3s ease;
+            &:hover{
+                fill: #b8b8b8;
+            }
+        }
+        .o-left{
+            float: left;
+            left: 10px;
+        }
+        .o-right{
+            float: right;
+            right: 10px;
+        }
+        &:after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+    }
+}
