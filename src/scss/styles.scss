@@ -1,3 +1,11 @@
+/*
+ * @Author: Ice-Hazymoon 
+ * @Date: 2018-06-04 15:41:56 
+ * @Last Modified by: Ice-Hazymoon
+ * @Last Modified time: 2018-06-04 18:05:33
+ */
+$theme-color: #8c72a7;
+
 html{
     font-size: 16px;
     height: 100%;
@@ -8,9 +16,9 @@ body{
     width: 100%;
     height: 100%;
     background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    // background-image: linear-gradient(135deg, #667eea 0%, #05000a 100%);
     transition: all .3s ease;
     font-family: Helvetica, "Helvetica Neue", Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",  "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .mask{
@@ -27,12 +35,22 @@ body{
     $height: 530px;
     $width: 400px;
     position: absolute;
-    width: $width;
+    max-width: $width;
+    width: 100%;
     height: $height;
     margin: 0 auto;
     top: calc((50% - #{$height / 2}));
     left: 0;
     right: 0;
+}
+
+@keyframes zzz{
+    from {
+        z-index: 0;
+    }
+    to {
+        z-index: 2;
+    }
 }
 
 .left{
@@ -41,23 +59,58 @@ body{
     left: -20px;
     top: 2%;
     height: 95%;
-    width: 300px;
+    width: 120px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 15px 60px 5px rgba($color: #110033, $alpha: .4);
-
+    box-shadow: -30px 15px 60px -25px rgba($color: #110033, $alpha: .4);
+    transition: all .3s ease;
 }
+
+#o-left:checked + #left-page{
+    height: 100%;
+    top: 0;
+    left: -120px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 1px solid #eee;
+    animation: zzz .1s linear .15s normal forwards;
+    & + #o-right + #right-page + .main{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        .o-left{
+            fill: #8c72a7;
+        }
+    }
+}
+
 .right{
     z-index: 0;
     position: absolute;
     right: -20px;
     top: 2%;
     height: 95%;
-    width: 300px;
+    width: 120px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 15px 60px 5px rgba($color: #110033, $alpha: .4);
+    box-shadow: 30px 15px 60px -25px rgba($color: #110033, $alpha: .4);
+    transition: all .3s ease;
+}
 
+#o-right:checked + #right-page{
+    height: 100%;
+    top: 0;
+    right: -120px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 1px solid #eee;
+    animation: zzz .1s linear .15s normal forwards;
+    & + .main{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        .o-right{
+            fill: #8c72a7;
+        }
+    }
 }
 
 .main{
@@ -68,7 +121,9 @@ body{
     box-shadow: 0 15px 60px 5px rgba($color: #110033, $alpha: .4);
     border-radius: 8px;
     background-color: #fff;
+    transition: all .3s ease;
     .avatar{
+        z-index: 2;
         margin: 0 auto;
         border-radius: 50%;
         width: 100px;
@@ -86,6 +141,12 @@ body{
             width: 100%;
             height: 100%;
             border-radius: 50%;
+            filter: grayscale(40%);
+            transition: all .3s ease;
+            &:hover{
+                filter: grayscale(0);
+                transform: scale(1.2);
+            }
         }
     }
     .hitokoto{
@@ -97,35 +158,53 @@ body{
         left: 0;
         right: 0;
         transform: scale(.9);
+        line-height: 1.4;
+        font-style: italic;
+        svg{
+            vertical-align: middle;
+            cursor: pointer;
+            fill: #8a8a8a;
+            margin-left: 3px;
+            width: 15px;
+            height: 15px;
+            transition: all .5s ease;
+            &:hover{
+                fill: #5e5e5e;
+            }
+            &.re{
+                transform: rotate(-720deg) !important;
+            }
+        }
     }
     .contact-p{
-        height: 60px;
-        width: 130px;
         position: absolute;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        bottom: -10px;
-        &:hover .contact{
-            bottom: 0;
-            box-shadow: none;
-            font-size: 16px;
-            width: 90px;
-        }
+        bottom: -23px;
+        width: 100%;
         .contact{
-            position: relative;
-            bottom: -23px;
-            color: #fff;
-            border-radius: 50px;
-            width: 100px;
-            text-align: center;
-            padding: 10px 15px;
+            $width: 46px;
             margin: 0 auto;
-            font-size: 18px;
+            box-sizing: border-box;
+            width: $width;
+            height: $width;
+            fill: rgba($color: #fff, $alpha: .9);
+            padding: 13px;
             background-image: linear-gradient(135deg, #667eea 0%, #a88fc3 100%);
-            box-shadow: 0px 15px 25px 3px rgba($color: #3D295A, $alpha: .4);
+            border-radius: 50%;
+            box-shadow: 0px 13px 30px 13px rgba(61, 41, 90, 0.24);
             cursor: pointer;
-            transition: all .3s ease;
+            transition: all .4s ease;
+            &:hover{
+                svg{
+                    transform: rotate(45deg);
+                }
+                box-shadow: none;
+            }
+            &:active{
+                transform: scale(.9)
+            }
+            svg{
+                transition: all .4s ease;
+            }
         }
     }
     .info{
@@ -135,8 +214,103 @@ body{
             font-weight: 300;
         }
         .address{
-            color: #8a8a8a;
+            color: hsl(0, 0%, 54%);
             margin-top: 5px;
+            font-size: 14px;
+        }
+        .tag{
+            opacity: .7;
+            margin-top: 5px;
+            svg{
+                width: 15px;
+                height: 15px;
+                vertical-align: middle;
+            }
+            ul{
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                li{
+                    list-style: none;
+                    padding: 0;
+                    display: inline-block;
+                    font-size: 12px;
+                    transition: .3s ease all;
+                    cursor: pointer;
+                    margin-right: 3px;
+                    &::before{
+                        content: '#'
+                    }
+                    &:hover{
+                        color: rgb(116, 129, 226);
+                    }
+                }
+            }
+        }
+        .timeline{
+            position: relative;
+            .line{
+                position: absolute;
+                width: 5px;
+                height: calc(100% + 20px);
+                background-color: rgb(236, 236, 236);
+                top: 5px;
+                left: 132px;
+            }
+            ul{
+                margin: 0;
+                padding: 0;
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                height: 190px;
+                text-align: left;
+                li{
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    .title{
+                        display: inline-block;
+                        position: relative;
+                        margin-right: 30px;
+                        margin-left: 50px;
+                        white-space:nowrap;
+                        width: 100px;
+                        font-size: 14px;
+                        &::after {
+                            content: '';
+                            display: inline-block;
+                            position: absolute;
+                            left: 77px;
+                            top: 3px;
+                            vertical-align: middle;
+                            width: 15px;
+                            height: 15px;
+                            border: 4px solid $theme-color;
+                            background-color:#fff;
+                            border-radius:50%;
+                            z-index: 99;
+                            box-sizing: border-box;
+                            &:hover{
+                                transform: scale(1.2);
+                            }
+                        }
+                    }
+                    .content{
+                        position: relative;
+                        box-sizing: border-box;
+                        padding-right: 20px;
+                        margin-left: 15px;
+                        font-size: 12px;
+                        width: calc(100% - 120px);
+                        display: inline-block;
+                        line-height: 1.3;
+                    }
+                }
+            }
         }
     }
     .operat{
