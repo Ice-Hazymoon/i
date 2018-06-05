@@ -2,7 +2,7 @@
  * @Author: Ice-Hazymoon 
  * @Date: 2018-06-04 15:41:56 
  * @Last Modified by: Ice-Hazymoon
- * @Last Modified time: 2018-06-04 23:59:36
+ * @Last Modified time: 2018-06-05 09:57:38
  */
 $theme-color: #8c72a7;
 
@@ -140,6 +140,7 @@ body{
     max-width: 400px;
     margin: 0 auto;
     height: 530px;
+    margin-bottom: 50px;
     .avatar{
         z-index: 2;
         margin: 0 auto;
@@ -404,7 +405,6 @@ body{
     }
     
     .cs.contact{
-        margin-top: 50px;
         ul,li{
             margin: 0;
             padding: 0;
@@ -420,10 +420,14 @@ body{
                 box-sizing: border-box;
                 transition: .3s ease all;
                 cursor: pointer;
-                svg{
+                a{
                     width: 25px;
                     height: 25px;
+                    display: block;
+                }
+                svg{
                     fill: #ffffff;
+                    vertical-align: middle;
                 }
                 &:active{
                     transform: scale(.9);
@@ -449,10 +453,14 @@ body{
                 box-sizing: border-box;
                 transition: .3s ease all;
                 cursor: pointer;
-                svg{
+                a{
                     width: 25px;
                     height: 25px;
+                    display: block;
+                }
+                svg{
                     fill: #ffffff;
+                    vertical-align: middle;
                 }
                 &:active{
                     transform: scale(.9);

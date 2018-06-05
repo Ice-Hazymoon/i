@@ -2,7 +2,7 @@
  * @Author: Ice-Hazymoon 
  * @Date: 2018-06-04 15:41:56 
  * @Last Modified by: Ice-Hazymoon
- * @Last Modified time: 2018-06-05 00:00:40
+ * @Last Modified time: 2018-06-05 10:14:20
  */
 (function(){
     function hitoko(){
@@ -41,7 +41,8 @@
         e.preventDefault();
         if(document.body.clientWidth < 450){
             if(toggleClass(this, 'show-c')){
-                document.getElementsByClassName('m')[0].style.display="block"
+                document.getElementsByClassName('m')[0].style.display="block";
+                window.scrollTo(0,document.querySelector('.contact.cs').offsetTop + 55);
             }else{
                 document.getElementsByClassName('m')[0].style.display="none"
             }
