@@ -2,7 +2,7 @@
  * @Author: Ice-Hazymoon 
  * @Date: 2018-06-04 15:41:56 
  * @Last Modified by: Ice-Hazymoon
- * @Last Modified time: 2018-06-05 10:45:36
+ * @Last Modified time: 2018-06-05 10:51:47
  */
 $theme-color: #8c72a7;
 
@@ -21,16 +21,6 @@ body{
     font-family: 'Noto Sans', sans-serif;
     user-select:none;
     -webkit-tap-highlight-color: transparent;
-}
-
-.mask{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-image: url('../images/bg.jpg');
-    width: 100%;
-    height: 100%;
-    opacity: .4;
 }
 
 #app{
@@ -503,6 +493,18 @@ body{
     }
     box-shadow: none !important;
     transform: scale(.9);
+}
+
+@media (min-width:1000px){
+    .mask{
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-image: url('../images/bg.jpg');
+        width: 100%;
+        height: 100%;
+        opacity: .4;
+    }
 }
 
 @media (max-width:450px){
